@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="emailClien">
+	<head>
+		<meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+		<meta http-equiv="Cache-Control" content="no-store" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Angular Courses</title>
+		<link href="_/css/style.min.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+        <div ng-controller="LetterController as main">
+            <letter letter="main.letter1"></letter>
+            <letter letter="main.letter2"></letter>
+        </div>
+        <div ng-controller="FoalderController as main">
+           <foalder ng-repeat="foalder in main.foalders"></foalder> 
+        </div>
+        
+        <script src="_/js/script.min.js" type="text/javascript"></script>
+	</body>
+</html>
