@@ -1,4 +1,4 @@
-/*! angular 2015-11-04 */
+/*! angular 2015-11-08 */
 /*
  AngularJS v1.4.7
  (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -9510,7 +9510,8 @@ function letter() {
         restrict: "E",
         templateUrl: "_/templates/letter.html",
         scope: {
-            letter: "=letter"
+            letter: "=letter",
+            num: "@"
         }
     };
 }
@@ -9519,6 +9520,80 @@ function foalder() {
     return {
         restrict: "E",
         templateUrl: "_/templates/foalder.html"
+    }
+}
+//---------------------------------------------
+function welcome() {
+    return {
+        restrict: "A",
+        link: function(scope, element, attrs) {
+            element.on("click", function() {
+                alert(attrs.welcome);
+            });
+        }
+    }
+}
+//-------------- U4et zatrat ------------------
+function accountOfExpenses() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "_/templates/accountOfExpenses.html"
+    }
+}
+//---------------------------------------------
+function expense() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "_/templates/expense.html"
+    }
+}
+//---------------------------------------------
+function buying() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "_/templates/buying.html"
+    }
+}
+//---------------------------------------------
+function profits() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "_/templates/profits.html"
+    }
+}
+//---------------------------------------------
+function widgets() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "_/templates/widgets.html",
+    }
+}
+//---------------------------------------------
+function currencyConverter(convertIntoRubles) {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "_/templates/currencyConverter.html",
+        scope: {
+            
+        },
+        link: function($scope, elem, attr) {
+            $scope.currency = "100EUR";
+            $scope.rubles = "0";
+            $scope.$watch("currency", function(value) {
+                var typeCurrency = null;
+                if (typeof value == "string" && value.length > 3) {
+                    typeCurrency = value.slice(-3);
+                }
+                
+                $scope.rubles = convertIntoRubles($scope.currency, typeCurrency);
+            });
+        }
     }
 }
 function LetterController() {
@@ -9562,6 +9637,117 @@ function FoalderController() {
             sumOfFiles: 32
         }
     ];
+    this.nahuiBlya = function() {
+        alert("Hi!");
+    }
+}
+//--------------------------------------------------
+function ExpensesController() {
+    this.expense = {
+        period: "01.11.2015-08.11.2015",
+        amount: {
+            products: 3,
+            manufacturedGoods: 2,
+            utilities: 1
+        },
+        sum: "1000"
+    }
+    this.buying = [
+        {
+            date: "01.11.2015",
+            productName: {
+                products: "Сыр",
+                manufacturedGoods: "",
+                utilities: ""
+            },
+            amount: 0.3,
+            price: 300,
+            sum: 90
+        },
+        {
+            date: "01.11.2015",
+            productName: {
+                products: "Хлеб",
+                manufacturedGoods: "",
+                utilities: ""
+            },
+            amount: 1,
+            price: 23,
+            sum: 23
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "Горох",
+                manufacturedGoods: "",
+                utilities: ""
+            },
+            amount: 0.5,
+            price: 83.58,
+            sum: 41.79
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "",
+                manufacturedGoods: "Станок ультра",
+                utilities: ""
+            },
+            amount: 1,
+            price: 50.95,
+            sum: 50.95
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "",
+                manufacturedGoods: "Мыло",
+                utilities: ""
+            },
+            amount: 1,
+            price: 39.35,
+            sum: 39.35
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "",
+                manufacturedGoods: "",
+                utilities: "Квартплата"
+            },
+            amount: 1,
+            price: 15000,
+            sum: 15000
+        }
+    ];
+    this.profits = {
+        period: "01.10.2015-01.11.2015",
+        type: {
+            salary: 20000,
+            partTime: 15000,
+            else: 2000
+        },
+        sum: 37000
+    }
+}
+//--------------------------------------------------
+function WidgetController(convertIntoRubles) {
+    
+}
+function convertIntoRubles() {
+    var courses = {
+        "USD": 64.62,
+        "EUR": 69.41,
+        "UAH": 2.83
+    };
+    return function(sum, currency) {
+        
+        sum = +sum.replace(/[^0-9|.]+/, "");
+        currency = currency || "USD";
+        if ( !courses[currency] ) currency = "USD";
+        
+        return (sum * courses[currency]).toFixed(2);
+    }
 }
 console.log("ready");
 
@@ -9570,18 +9756,32 @@ var app = angular.module("emailClien", []);
 app
 .directive("letter", letter)
 .directive("foalder", foalder)
+.directive("welcome", welcome)
+.directive("accountOfExpenses", accountOfExpenses)
+.directive("expense", expense)
+.directive("buying", buying)
+.directive("profits", profits)
+.directive("widgets", widgets)
+.directive("currencyConverter", currencyConverter)
 .controller("LetterController", LetterController)
-.controller("FoalderController", FoalderController);
+.controller("FoalderController", FoalderController)
+.controller("ExpensesController", ExpensesController)
+.controller("WidgetController", WidgetController)
+.factory("convertIntoRubles", convertIntoRubles);
 
 /*
+    html - https://github.com/Talalaev/angularCourse/blob/master/index.html
+    js - https://github.com/Talalaev/angularCourse/tree/master/_/components/js
+    templates - https://github.com/Talalaev/angularCourse/tree/master/_/templates
+    
     Вопросы:
     
-    1. в исходном коде часто встречаются переменные без объявления, которые начинаются с символа @, например, @type, что они значат и что обозначает символ @? Ведь данный синтаксис (@type) не коректен в js?
+    1. в исходном коде Angular часто встречаются переменные без объявления, которые начинаются с символа @, например, @type, что они значат и что обозначает символ @? Ведь данный синтаксис (@type) не коректен в js?
     
     2. у нас есть исходный код: 
     <div ng-controller="FoalderController as main">
         <foalder ng-repeat="foalder in main.foalders"></foalder> 
     </div>
-    который перебирает значения массива. Будем ли мы разбирать как создать подобную дериктиву реализующуу в себе некую логику, если нет то как это сделать?
+    который перебирает значения массива. Будем ли мы разбирать как создать подобную директиву реализующуу в себе некую логику, если нет то как это сделать?
     
 */
