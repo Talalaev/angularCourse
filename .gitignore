@@ -2,7 +2,7 @@ $ cat .gitignore
 *~
 *.css.map
 *.bat
-
+*.xlsx
 info.txt
 .sass-cache/
 bower_components/

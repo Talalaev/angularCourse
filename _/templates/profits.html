@@ -1,0 +1,26 @@
+<div id="profits">
+    <h2>Доходы</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Период:</th>
+                <th colspan="3">Кол-во</th>
+                <th rowspan="2">Сумма:</th>
+            </tr>
+            <tr>
+                <th>Продукты:</th>
+                <th>Промтовары:</th>
+                <th>Комунальные услуги:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span ng-bind="accounting.profits.period"></span></td>
+                <td><span ng-bind="accounting.profits.type.salary"></span></td>
+                <td><span ng-bind="accounting.profits.type.partTime"></span></td>
+                <td><span ng-bind="accounting.profits.type.else"></span></td>
+                <td><span ng-bind="accounting.profits.sum"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

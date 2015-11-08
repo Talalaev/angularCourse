@@ -1,0 +1,30 @@
+<div id="buying">
+    <h2>Покупки</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Дата:</th>
+                <th colspan="3">Наименование:</th>
+                <th rowspan="2">Кол-во:</th>
+                <th rowspan="2">Цена:</th>
+                <th rowspan="2">Сумма:</th>
+            </tr>
+            <tr>
+                <th>Продукты:</th>
+                <th>Промтовары:</th>
+                <th>Комунальные услуги:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="buying in accounting.buying">
+                <td><span ng-bind="buying.date"></span></td>
+                <td><span ng-bind="buying.productName.products"></span></td>
+                <td><span ng-bind="buying.productName.manufacturedGoods"></span></td>
+                <td><span ng-bind="buying.productName.utilities"></span></td>
+                <td><span ng-bind="buying.amount"></span></td>
+                <td><span ng-bind="buying.price"></span></td>
+                <td><span ng-bind="buying.sum"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

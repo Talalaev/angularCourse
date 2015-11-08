@@ -39,4 +39,100 @@ function FoalderController() {
             sumOfFiles: 32
         }
     ];
+    this.nahuiBlya = function() {
+        alert("Hi!");
+    }
+}
+//--------------------------------------------------
+function ExpensesController() {
+    this.expense = {
+        period: "01.11.2015-08.11.2015",
+        amount: {
+            products: 3,
+            manufacturedGoods: 2,
+            utilities: 1
+        },
+        sum: "1000"
+    }
+    this.buying = [
+        {
+            date: "01.11.2015",
+            productName: {
+                products: "Сыр",
+                manufacturedGoods: "",
+                utilities: ""
+            },
+            amount: 0.3,
+            price: 300,
+            sum: 90
+        },
+        {
+            date: "01.11.2015",
+            productName: {
+                products: "Хлеб",
+                manufacturedGoods: "",
+                utilities: ""
+            },
+            amount: 1,
+            price: 23,
+            sum: 23
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "Горох",
+                manufacturedGoods: "",
+                utilities: ""
+            },
+            amount: 0.5,
+            price: 83.58,
+            sum: 41.79
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "",
+                manufacturedGoods: "Станок ультра",
+                utilities: ""
+            },
+            amount: 1,
+            price: 50.95,
+            sum: 50.95
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "",
+                manufacturedGoods: "Мыло",
+                utilities: ""
+            },
+            amount: 1,
+            price: 39.35,
+            sum: 39.35
+        },
+        {
+            date: "02.11.2015",
+            productName: {
+                products: "",
+                manufacturedGoods: "",
+                utilities: "Квартплата"
+            },
+            amount: 1,
+            price: 15000,
+            sum: 15000
+        }
+    ];
+    this.profits = {
+        period: "01.10.2015-01.11.2015",
+        type: {
+            salary: 20000,
+            partTime: 15000,
+            else: 2000
+        },
+        sum: 37000
+    }
+}
+//--------------------------------------------------
+function WidgetController(convertIntoRubles) {
+    
 }

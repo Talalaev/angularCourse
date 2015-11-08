@@ -1,0 +1,26 @@
+<div id="expense">
+    <h2>Расходы</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Период:</th>
+                <th colspan="3">Кол-во</th>
+                <th rowspan="2">Сумма:</th>
+            </tr>
+            <tr>
+                <th>Продукты:</th>
+                <th>Промтовары:</th>
+                <th>Комунальные услуги:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span ng-bind="accounting.expense.period"></span></td>
+                <td><span ng-bind="accounting.expense.amount.products"></span></td>
+                <td><span ng-bind="accounting.expense.amount.manufacturedGoods"></span></td>
+                <td><span ng-bind="accounting.expense.amount.utilities"></span></td>
+                <td><span ng-bind="accounting.expense.sum"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

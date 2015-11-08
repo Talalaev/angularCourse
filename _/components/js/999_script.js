@@ -9,6 +9,10 @@ app
 .controller("FoalderController", FoalderController);
 
 /*
+    html - https://github.com/Talalaev/angularCourse/blob/master/index.html
+    js - https://github.com/Talalaev/angularCourse/tree/master/_/components/js
+    templates - https://github.com/Talalaev/angularCourse/tree/master/_/templates
+    
     Вопросы:
     
     1. в исходном коде часто встречаются переменные без объявления, которые начинаются с символа @, например, @type, что они значат и что обозначает символ @? Ведь данный синтаксис (@type) не коректен в js?

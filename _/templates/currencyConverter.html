@@ -1,0 +1,17 @@
+<div class="currencyConverter">
+    <h3>Конвертор валют</h3>
+    <div>
+        <div>Доступно 2 валюты (По умолчанию USD):</div>
+        <ul>
+            <li>USD</li>
+            <li>EUR</li>
+        </ul>
+    </div>
+    <div>Формат ввода: например, 20 евро --> 20EUR</div>
+    
+    <span>Валюта:</span>
+    <input ng-model="currency" type="text" placeholder="12EUR">
+    <div>
+        Рубли: <span ng-bind="rubles"></span>
+    </div>
+</div>
