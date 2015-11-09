@@ -39,7 +39,7 @@ function FoalderController() {
             sumOfFiles: 32
         }
     ];
-    this.nahuiBlya = function() {
+    this.hi = function() {
         alert("Hi!");
     }
 }
