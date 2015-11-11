@@ -1,0 +1,16 @@
+doctype html
+html(lang="ru" ng-app="emailClien")
+	head
+		meta(content="text/html;charset=UTF-8" http-equiv="Content-Type")
+		meta(http-equiv="Cache-Control" content="no-store")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title Angular Courses
+		link(href="style.min.css" type="text/css" rel="stylesheet")
+	body
+		h1.title Lesson #{lesson}
+        
+		div(ng-controller="ExpensesController as accounting")
+			account-of-expenses
+		
+		
+		script(type="text/javascript" src="script.min.js")

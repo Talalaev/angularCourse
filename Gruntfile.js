@@ -99,6 +99,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['compass', 'sass:p', 'bower_concat', 'concat:p', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['compass', 'sass:p', 'bower_concat', 'concat:d', 'cssmin']);
 
 };

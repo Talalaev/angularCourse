@@ -1,3 +1,4 @@
+'use strict'
 function LetterController() {
     // this --> main 
     // ng-controller="MainController as main"
@@ -44,7 +45,7 @@ function FoalderController() {
     }
 }
 //--------------------------------------------------
-function ExpensesController() {
+function ExpensesController(BuyingService) {
     this.expense = {
         period: "01.11.2015-08.11.2015",
         amount: {
@@ -54,6 +55,12 @@ function ExpensesController() {
         },
         sum: "1000"
     }
+    console.log(BuyingService);
+    BuyingService.getAll().then(buying => {
+        
+        this.buying = buying;
+    });
+    /*
     this.buying = [
         {
             date: "01.11.2015",
@@ -122,6 +129,7 @@ function ExpensesController() {
             sum: 15000
         }
     ];
+    */
     this.profits = {
         period: "01.10.2015-01.11.2015",
         type: {
