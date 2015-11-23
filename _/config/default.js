@@ -3,6 +3,6 @@ module.exports = {
   // or a separate config
     secret: 'mysecret',
     root: process.cwd(),
-    db_url: 'mongodb://localhost:27017/test',
+    db_url: 'mongodb://localhost:27017/accountOfExpenses',
 	templates: 'public'
 };

@@ -1,16 +1,20 @@
 doctype html
-html(lang="ru" ng-app="emailClien")
+html(lang="ru" ng-app="accountOfExpensesApp")
 	head
 		meta(content="text/html;charset=UTF-8" http-equiv="Content-Type")
 		meta(http-equiv="Cache-Control" content="no-store")
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		title Angular Courses
+		script.
+			document.write('<base href="http://' + location.host + '/" />')
 		link(href="style.min.css" type="text/css" rel="stylesheet")
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,600' rel='stylesheet' type='text/css')
 	body
-		h1.title Lesson #{lesson}
+		h1#nameApp
+			a(ui-sref="home") #{appName} App
         
-		div(ng-controller="ExpensesController as accounting")
-			account-of-expenses
-		
-		
+		//div(ng-controller="ExpensesController as accounting")
+			//account-of-expenses
+			
+		ui-view
 		script(type="text/javascript" src="script.min.js")

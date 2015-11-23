@@ -1,3 +1,31 @@
+function home() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "home.html",
+        scope: {
+            
+        }
+    };
+}
+//---------------------------------------------
+function auth() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "auth.html",
+        scope: {
+            
+        },
+        controllerAs: "authRes",
+        controller: AuthController,
+        link: function(scope, elem, attr) {
+            scope.isFormShown = false;
+            scope.nameWasEntered = true;
+        }
+    };
+}
+//---------------------------------------------
 function letter() {
     return {
         restrict: "E",
@@ -7,13 +35,6 @@ function letter() {
             num: "@"
         }
     };
-}
-//---------------------------------------------
-function foalder() {
-    return {
-        restrict: "E",
-        templateUrl: "foalder.html"
-    }
 }
 //---------------------------------------------
 function welcome() {
@@ -47,7 +68,9 @@ function buying() {
     return {
         restrict: "E",
         replace: true,
-        templateUrl: "buying.html"
+        templateUrl: "buying.html",
+        controllerAs: "buyings",
+        controller: 'BuyingsController'
     }
 }
 //---------------------------------------------

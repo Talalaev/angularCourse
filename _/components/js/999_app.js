@@ -1,10 +1,12 @@
 console.log("ready");
 
-var app = angular.module("emailClien", ["restangular"]);
+var app = angular.module("accountOfExpensesApp", ["restangular", "ui.router"]);
 
 app
+.config(configs)
+.directive("home", home)
+.directive("auth", auth)
 .directive("letter", letter)
-.directive("foalder", foalder)
 .directive("welcome", welcome)
 .directive("accountOfExpenses", accountOfExpenses)
 .directive("expense", expense)
@@ -12,12 +14,15 @@ app
 .directive("profits", profits)
 .directive("widgets", widgets)
 .directive("currencyConverter", currencyConverter)
-.controller("LetterController", LetterController)
-.controller("FoalderController", FoalderController)
+.controller("AuthController", AuthController)
+.controller("UserController", UserController)
+.controller("BuyingsController", BuyingsController)
 .controller("ExpensesController", ExpensesController)
+.controller("ProfitsController", ProfitsController)
 .controller("WidgetController", WidgetController)
 .factory("convertIntoRubles", convertIntoRubles)
-.factory("BuyingService", BuyingService);
+.factory("BuyingService", BuyingService)
+.factory("authorizeUser", authorizeUser);
 
 /*
     1. Вот у нас есть BuyingService для CRUD операций с покупками, но почему бы не сделать один универсальный сервис для CRUD (например, CRUDService) операций вообще или стоит всеже создавать отдельные сервисы под разные сущности т.е. свой сервис под покупки, пользователей и т.д. ?

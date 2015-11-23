@@ -3,7 +3,9 @@ function *mainPage() {
     try {
         var html = jade.renderFile(
             path.join(roots.templates, 'index.jade'), 
-            {lesson: "4"}
+            {
+                appName: "Account Of Expenses"
+            }
         );
 
         this.body = html;

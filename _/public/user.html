@@ -1,0 +1,14 @@
+<div id="user">
+   
+    Вы вошли как: <span ng-bind="userData.name"></span>
+    
+    <div id="user-menu">
+        
+        <a ui-sref="user.buyings">Покупки</a>
+        <a href="/logout">Выход</a>
+        
+    </div>
+    
+    <ui-view></ui-view>
+    
+</div>

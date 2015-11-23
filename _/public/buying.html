@@ -16,11 +16,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="buying in accounting.buying">
+            <tr ng-repeat="buying in buyings.buying">
                 <td><span ng-bind="buying.date"></span></td>
-                <td><span ng-bind="buying.productName.products"></span></td>
-                <td><span ng-bind="buying.productName.manufacturedGoods"></span></td>
-                <td><span ng-bind="buying.productName.utilities"></span></td>
+                <td><span ng-bind="buying.products"></span></td>
+                <td><span ng-bind="buying.manufacturedGoods"></span></td>
+                <td><span ng-bind="buying.utilities"></span></td>
                 <td><span ng-bind="buying.amount"></span></td>
                 <td><span ng-bind="buying.price"></span></td>
                 <td><span ng-bind="buying.sum"></span></td>

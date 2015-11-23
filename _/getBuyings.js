@@ -1,4 +1,106 @@
 function *getBuyings() {
+    
+    console.log(this.isAuthenticated());
+    console.log(this.session.passport.user);
+    
+    var result = yield Buying.find({buyer: this.session.passport.user}).exec();
+    
+    console.log(result);
+    this.body = result;
+    
+}
+
+const MongoClient   = require('mongodb').MongoClient
+, assert            = require('assert');
+const roots			= require('config');
+const mongoose      = require("mongoose");
+const Buying        = require("./models/buying");
+
+module.exports = getBuyings;
+
+
+/*
+    var mike =  new User({
+        name: "Mike",
+        login: "Alung",
+        password: "secret",
+        email: "emailname@yandex.ru"
+    });
+    
+    mike.save(function(err, result){
+        console.log(result);
+    });
+*/
+
+/* sozdanie pokupok pereda4ei masiva promisov
+    var r = yield [
+        Buying.create({
+            date: "01.11.2015",
+            products: "Сыр",
+            manufacturedGoods: "",
+            utilities: "",
+            amount: 0.3,
+            price: 300,
+            sum: 90,
+            buyer: result[0]._id // predvaritel'no polu4enoe id pol'zovatel9
+        }),
+            Buying.create({
+            date: "01.11.2015",
+            products: "Хлеб",
+            manufacturedGoods: "",
+            utilities: "",
+            amount: 1,
+            price: 23,
+            sum: 23,
+            buyer: result[0]._id
+        }),
+        Buying.create({
+            date: "02.11.2015",
+            products: "Горох",
+            manufacturedGoods: "",
+            utilities: "",
+            amount: 0.5,
+            price: 83.58,
+            sum: 41.79,
+            buyer: result[0]._id
+        }),
+        Buying.create({
+            date: "02.11.2015",
+            products: "",
+            manufacturedGoods: "Станок ультра",
+            utilities: "",
+            amount: 1,
+            price: 50.95,
+            sum: 50.95,
+            buyer: result[0]._id
+        }),
+        Buying.create({
+            date: "02.11.2015",
+            products: "",
+            manufacturedGoods: "Мыло",
+            utilities: "",
+            amount: 1,
+            price: 39.35,
+            sum: 39.35,
+            buyer: result[0]._id
+        }),
+        Buying.create({
+            date: "02.11.2015",
+            products: "",
+            manufacturedGoods: "",
+            utilities: "Квартплата",
+            amount: 1,
+            price: 15000,
+            sum: 15000,
+            buyer: result[0]._id
+        })
+    ];
+    console.log(r);
+    */
+
+/* Mongodb
+
+function *getBuyings() {
 	var result      = yield new Promise (function(resolve, reject) {
         MongoClient.connect(roots.db_url, function(err, db) {
             (function(db) {
@@ -15,11 +117,8 @@ function *getBuyings() {
     this.body = result;
 }
 
-const MongoClient   = require('mongodb').MongoClient
-, assert            = require('assert');
-const roots			= require('config');
+*/
 
-module.exports = getBuyings;
 
 
 /*
