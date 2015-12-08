@@ -31,7 +31,23 @@ app.use(passport.session());
 
 auth
     .get("/", require('./mainPage'))
-    .post("/login",function*(next) {
+    .post("/regist", function *() {
+        console.log(this.request.body);
+        
+        // только для святых пользователей
+        // если придет не коректный объект сервер ляжет!!!
+        try {
+            yield new User(this.request.body).save();
+            this.status = 200;
+            this.body = "ok";
+        } catch(e) {
+            this.status = 400;
+            this.body = "validation error";
+            console.log(e);
+        }
+        
+    })
+    .post("/login", function *(next) {
         var ctx = this;
         yield passport.authenticate('local', function*(err, user, info) {
             if (err) throw err
@@ -76,11 +92,14 @@ app.use(function *(next) {
 router
     .get("/users", require('./mainPage'))
     .get("/users/*", require('./mainPage'))
-	.get("/getBuyings", require('./getBuyings'))
-    .get("/getUser/:user", require('./getUser'))
-	.put("/addPhone", require('./addBuyings'))
-    .post("/updateBuyings", require('./updateBuyings'))
-    .post("/deleteBuyings", require('./deleteBuyings'));
+    .get("/getUsers", require('./getUsers'))
+    .get("/getUser", require('./getUser'))
+    .post("/updateUser", require('./updateUser'))
+    .delete("/deleteUser", require('./deleteUser'))
+    .get("/getBuyings", require('./getBuyings'))
+	.post("/addBuying", require('./addBuying'))
+    .post("/updateBuying", require('./updateBuying'))
+    .post("/deleteBuying", require('./deleteBuying'));
 
 console.log(path.join(__dirname, '\css')); //path.join(__dirname, '/js')
 app.use(router.routes());

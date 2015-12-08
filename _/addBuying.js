@@ -1,12 +1,24 @@
 function *addBuying() {
-	this.body = {
-        add: true
+    console.log(this.request.body);
+    var buying = this.request.body;
+    buying.buyer = this.session.passport.user;
+    
+    try {
+        yield Buying.create( buying );
+        this.status = 200;
+        this.body = "ok";
+    } catch(e) {
+        this.status = 400;
+        this.body = "validation error";
+        console.log(e);
     }
+    
 }
 
 const MongoClient   = require('mongodb').MongoClient
 , assert            = require('assert');
 const roots			= require('config');
+const Buying        = require("./models/buying");
 
 module.exports = addBuying;
 

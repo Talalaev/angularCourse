@@ -43,16 +43,18 @@ function BuyingService(Restangular) {
             .all('getBuyings').getList();
     }
     
-    this.add = function() {
-        
+    this.add = function( data ) {
+        return Restangular
+            .all("addBuying").post( data );
     }
     
     this.update = function() {
         
     }
     
-    this.deleteOne = function() {
-        
+    this.deleteOne = function( data ) {
+        return Restangular
+            .all("deleteBuying").post( data );
     }
     
     this.deleteAll = function() {
@@ -61,9 +63,53 @@ function BuyingService(Restangular) {
     return this;
 }
 
-function authorizeUser($location, Restangular) {
-    return function( data ) {
+function UserService(Restangular) {
+    
+    this.auth = function( data ) {
         return Restangular
             .all("login").post(data);
-    };
+    }
+    
+    this.regist = function( data ) {
+        return Restangular
+            .all("regist").post(data);
+    }
+    
+    this.logout = function( url ) {
+        if ( !url ) url = "logout";
+        return Restangular
+            .oneUrl('logout', url).get();
+    }
+    
+    this.getById = function(id) {
+        return Restangular
+            .one('getUser', id).get();
+    }
+    
+    this.get = function() {
+        return Restangular
+            .one('getUser').get();
+    }
+    
+    this.getAll = function() {
+        return Restangular
+            .one('getUsers').get();
+    }
+    
+    this.add = function() {
+        
+    }
+    
+    this.update = function( data ) {
+        return Restangular
+            .all("updateUser").post(data);
+    }
+    
+    this.delete = function() {
+        return Restangular
+            .all("deleteUser").remove();
+    }
+    
+    return this;
+    
 }

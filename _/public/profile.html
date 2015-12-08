@@ -1,0 +1,63 @@
+<div id="profile">
+    
+    <div class="profile-info" ng-if="user.showOrEdit">
+        <div>
+            <span>Name:</span>
+            <span ng-bind="user.name"></span>
+        </div>
+        <div>
+            <span>Login:</span>
+            <span ng-bind="user.login"></span>
+        </div>
+        <div>
+            <span>E-mail:</span>
+            <span ng-bind="user.email"></span>
+        </div>
+        <div>
+            <span>Password:</span>
+            <span>******</span>
+        </div>
+        <div>
+            <a href="" ng-click="user.triggerShowOrEdit()">Редактировать</a>
+        </div>
+        <div>
+            <a href="" ng-click="user.delete()">Удалить</a>
+        </div>
+    </div>
+    
+    <div class="profile-edit" ng-if="!user.showOrEdit">
+        <div>
+            <span>Name:</span>
+            <input ng-model="name" type="text" name="name" placeholder="Имя">
+        </div>
+        <div>
+            <span>Login:</span>
+            <input ng-model="login" type="text" name="login" placeholder="Логин">
+        </div>
+        <div>
+            <span>E-mail:</span>
+            <input ng-model="email" type="text" name="email" placeholder="E-mail">
+        </div>
+        <div>
+            <span>Old Password:</span>
+            <input ng-model="oldPassword" type="password" name="password" placeholder="Старый пароль">
+        </div>
+        <div>
+            <span>New Password:</span>
+            <input ng-model="newPassword" type="password" name="password" placeholder="Новый пароль">
+        </div>
+        <div>
+            <button class="updateUser" type="button" ng-click="user.update({
+                name: this.name,
+                login: this.login,
+                email: this.email,
+                oldPassword: this.oldPassword,
+                newPassword: this.newPassword
+            })">Сохранить</button>
+        </div>
+        <div>
+            <a href="" ng-click="user.triggerShowOrEdit()">Назад</a>
+        </div>
+    </div>    
+    
+</div>

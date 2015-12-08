@@ -1,5 +1,13 @@
-<div id="home">
-   
-    <auth></auth>
+<div id="home" >
+    
+    <div>
+        <a href="" ng-click="g()">Авторизация</a>
+        <auth ng-if="check"></auth>
+    </div>
+    
+    <div>
+        <a href="" ng-click="g()">Регистрация</a>
+        <regist ng-if="!check"></regist>
+    </div>
     
 </div>

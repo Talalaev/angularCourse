@@ -5,6 +5,13 @@ function home() {
         templateUrl: "home.html",
         scope: {
             
+        },
+        controllerAs: "home",
+        controller: function($scope) {
+            $scope.g = function() {
+                this.check = !this.check;
+            }
+            $scope.check = true;
         }
     };
 }
@@ -24,6 +31,37 @@ function auth() {
             scope.nameWasEntered = true;
         }
     };
+}
+//---------------------------------------------
+function regist() {
+    return {
+        restrict: "E",
+        replace: "true",
+        templateUrl: "regist.html",
+        scope: {
+            
+        },
+        controllerAs: "registRes",
+        controller: RegistController
+    }
+}
+//---------------------------------------------
+function user() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "user.html",
+        controllerAs: "user",
+        controller: 'UserController'
+    }
+}
+//---------------------------------------------
+function profile() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "profile.html"
+    }
 }
 //---------------------------------------------
 function letter() {
@@ -71,6 +109,14 @@ function buying() {
         templateUrl: "buying.html",
         controllerAs: "buyings",
         controller: 'BuyingsController'
+    }
+}
+//---------------------------------------------
+function addBuying() {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "addBuying.html"
     }
 }
 //---------------------------------------------

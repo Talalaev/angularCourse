@@ -1,0 +1,62 @@
+<div id="addBuying">
+    <h2>Добавить товар</h2>
+    <table >
+        <tbody>
+            <tr>
+                <td>Дата</td>
+                <td>Наименование</td>
+                <td>Тип</td>
+                <td>Кол-во</td>
+                <td>Цена</td>
+                <td>Сумма</td>
+                <td rowspan="2">
+                    <button ng-click="buyings.add({
+                        date: this.date,
+                        name: this.name,
+                        prodType: this.prodType,
+                        amount: this.amount,
+                        price: this.price,
+                        sum: this.sum
+                    })">Сохранить</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" ng-model="date">
+                </td>
+                <td>
+                    <input type="text" ng-model="name">
+                </td>
+                <td>
+                    Прод-ты
+                    <input type="radio" name="prodType" ng-model="prodType" ng-value="{
+                        products: true,
+                        manufacturedGoods: false,
+                        utilities: false
+                    }">
+                    Пром-ры
+                    <input type="radio" name="prodType" ng-model="prodType" ng-value="{
+                        products: false,
+                        manufacturedGoods: true,
+                        utilities: false
+                    }">
+                    Кому-ные усдуги
+                    <input type="radio" name="prodType" ng-model="prodType" ng-value="{
+                        products: false,
+                        manufacturedGoods: false,
+                        utilities: true
+                    }">
+                </td>
+                <td>
+                    <input type="text" ng-model="amount">
+                </td>
+                <td>
+                    <input type="text" ng-model="price">
+                </td>
+                <td>
+                    <input type="text" ng-model="sum">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

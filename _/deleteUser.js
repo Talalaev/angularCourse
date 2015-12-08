@@ -1,9 +1,6 @@
-function *getUser() {
-    console.log("getUser");
-    var result = yield User.findOne({_id: this.session.passport.user}).exec();
-    delete result.password;
-    result.password = null;
-    console.log(result);
+function *deleteUser() {
+    
+    var result = yield User.remove({ _id: this.session.passport.user }).exec();
     this.body = result;
     
 }
@@ -14,4 +11,4 @@ const roots			= require('config');
 const mongoose      = require("mongoose");
 const User          = require("./models/user");
 
-module.exports = getUser;
+module.exports = deleteUser;

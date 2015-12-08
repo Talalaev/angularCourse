@@ -1,4 +1,5 @@
 <div id="buying">
+    <add-buying></add-buying>
     <h2>Покупки</h2>
     <table>
         <thead>
@@ -8,6 +9,7 @@
                 <th rowspan="2">Кол-во:</th>
                 <th rowspan="2">Цена:</th>
                 <th rowspan="2">Сумма:</th>
+                <th rowspan="2"></th>
             </tr>
             <tr>
                 <th>Продукты:</th>
@@ -24,6 +26,7 @@
                 <td><span ng-bind="buying.amount"></span></td>
                 <td><span ng-bind="buying.price"></span></td>
                 <td><span ng-bind="buying.sum"></span></td>
+                <td><button ng-click="buyings.delete(buying._id)">Удалить</button></td>
             </tr>
         </tbody>
     </table>

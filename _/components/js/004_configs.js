@@ -6,22 +6,41 @@ function configs($stateProvider, $locationProvider) {
     });
     
     $stateProvider
+    
     .state("home", {
         url: "/",
         template: "<home></home>"
     })
+    
     .state("users", {
         url: "/users",
-        templateUrl: "users.html"
+        templateUrl: "users.html",
+        resolve: {
+            users: function( UserService ) {
+                // получим всех пользователей тут
+                // UserService.getAll().then();
+                return UserService.getAll();
+            }
+        },
+        controllerAs: "usersData",
+        controller: function (users) {
+            this.users = users;
+        }
     })
+    
     .state("user", {
         url: "/users/:user",
-        templateUrl: "user.html",
-        controllerAs: "userData",
-        controller: 'UserController'
+        template: "<user></user>"
     })
+    
+    .state("user.profile", {
+        url: "/profile",
+        template: "<profile></profile>"
+    })
+    
     .state("user.buyings", {
         url: "/buyings",
         template: "<buying></buying>"
     });
+    
 }

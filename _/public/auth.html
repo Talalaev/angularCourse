@@ -1,14 +1,19 @@
-<form action="login" method="post">
+<div id="auth">
+    
+    <form action="login" method="post">
        
-    <div id="authorizationForm" ng-show="isFormShown">
-        <label for="userName">Авторизируйтесь:</label>
-        <input ng-model="userName" id="userName" type="text" name="username" placeholder="Имя">
-        <input ng-model="userPass" id="userPass" type="password" name="password" placeholder="Пароль">
-        <p id="authorisationError" ng-hide="nameWasEntered">
-            Право же, введите имя прежде чем жмакать, Сударь!
-        </p>
-    </div>
+        <div id="authorizationForm" ng-show="isFormShown">
+            <label for="userName">Авторизируйтесь:</label>
+            <input ng-model="userName" id="userName" type="text" name="username" placeholder="Имя">
+            <input ng-model="userPass" id="userPass" type="password" name="password" placeholder="Пароль">
+            <p id="authorisationError" ng-hide="nameWasEntered">
+                Право же, введите имя прежде чем жмакать, Сударь!
+            </p>
+        </div>
+
+        <button class="enterIntoApp" ng-click="onEnterClick()" type="button">Войти</button>
+
+    </form>
     
-    <button id="enterIntoApp" ng-click="onEnterClick()" type="button">Войти</button>
-    
-</form>
+</div>
+      
