@@ -34,8 +34,8 @@
 4. "/users/userName/profile"
 5. "users/userName/buyings"
 
-_Сервер -> "_/server.js" по адресу http://localhost:3000
-Backend -> "_/*.js", "_/config", "_/models"
-Исходники Front-end -> "_/components/js/allfolders", "_/components/js/app.js" собираются в "build.js"
-остальные файлы в директории "_/components/js/" ждут удаления
-сборка просто командой grunt_
+    Сервер -> "_/server.js" по адресу http://localhost:3000
+    Backend -> "_/*.js", "_/config", "_/models"
+    Исходники Front-end -> "_/components/js/allfolders", "_/components/js/app.js" собираются в "build.js"
+    остальные файлы в директории "_/components/js/" ждут удаления
+    сборка просто командой grunt
