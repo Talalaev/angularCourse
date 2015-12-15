@@ -54,6 +54,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  letter-spacing: 0.7px;
+  color: #333;
+}
+
 h1 {
   text-align: center;
   margin: 10px 0;
@@ -75,13 +81,13 @@ table {
   width: 100%;
 }
 
-th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
 th {
   text-align: center;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #d6d5db;
 }
 
 .row-6 {
@@ -93,6 +99,42 @@ th {
 
 .container {
   margin: 0 10px;
+}
+
+#home {
+  text-align: center;
+}
+
+#nameApp a {
+  text-decoration: none;
+  color: #333;
+}
+
+.enterIntoApp {
+  background: transparent linear-gradient(#ffffff 25%, #dfdfdf 75%) repeat scroll 0 0;
+  border: 1px solid #ccc;
+  color: #59595c;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  display: block;
+  margin: 3em auto 0;
+}
+.enterIntoApp:active {
+  box-shadow: 0 0 2px #ccc inset;
+}
+
+#authorizationForm {
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px #ccc;
+  margin: 3em auto;
+  padding: 1.5em;
+  width: 50%;
+}
+
+#authorisationError {
+  color: red;
+  font-size: 0.7em;
+  margin-top: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -15,6 +15,20 @@ module.exports = function(grunt) {
             }
         }
     },
+    webpack: {
+		def: {
+			// webpack options 
+            context: __dirname + "/_/components/js",
+			entry: "./app.js",
+			output: {
+				path: __dirname + "/_/components/js",
+				filename: "build.js",
+                // создать внешную переменную
+				library: "moduleHome"
+			},
+			// devtool: "source-map"
+		}
+	},
 	concat: {
 	    options: {
             banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -23,7 +37,7 @@ module.exports = function(grunt) {
 			src: [
                 'bower_components/angular/angular.min.js',
 				'_/components/libs.js',
-				'_/components/js/*.js'
+				'_/components/js/build.js'
 			],
 			dest: '_/components/allScripts.js'
 		},
@@ -31,7 +45,7 @@ module.exports = function(grunt) {
 			src: [
                 'bower_components/angular/angular.js',
 				'_/components/libs.js',
-				'_/components/js/*.js'
+				'_/components/js/build.js'
 			],
 			dest: '_/js/script.min.js'
 		}
@@ -97,8 +111,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-webpack');
 
   // Default task(s).
-  grunt.registerTask('default', ['compass', 'sass:p', 'bower_concat', 'concat:d', 'cssmin']);
+  grunt.registerTask('default', ['webpack', 'compass', 'sass:p', 'bower_concat', 'concat:d', 'cssmin']);
 
 };
